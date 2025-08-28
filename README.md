@@ -218,7 +218,7 @@ openpyxl>=3.1.0
 </div>
 
 ## 📸 Dashboard Screenshots
-<b><u>Sales Analysis<b><u>
+
 <img width="1536" height="601" alt="image" src="https://github.com/user-attachments/assets/b03d6727-c638-4957-921a-1871f689cc03" />
 
 <img width="1482" height="556" alt="image" src="https://github.com/user-attachments/assets/0c5fa383-603c-4c8b-a050-51e40a45d955" />
@@ -297,6 +297,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ### ⭐ **Star this repository if you find it helpful!** 
 
 </div>
+
 
 
 
