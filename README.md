@@ -1,16 +1,15 @@
 # 🛒 E-Commerce Sales Analytics Dashboard
 
-<div align="center">
+<div align="left">
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/Komaldhiman0704/ecommerce-sales-analytics-dashboard)](https://github.com/Komaldhiman0704/ecommerce-sales-analytics-dashboard/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/Komaldhiman0704/ecommerce-sales-analytics-dashboard)](https://github.com/Komaldhiman0704/ecommerce-sales-analytics-dashboard/issues)
 
 **Transform raw e-commerce data into actionable business insights with AI-powered analytics**
 
-[🚀 Live Demo](https://your-demo-link.streamlit.app) • [📖 Documentation](docs/) • [🐛 Report Bug](../../issues) • [✨ Request Feature](../../issues)
+[🚀 Live Demo](#-quick-start) • [📖 Documentation](#-analysis-methodology) • [🐛 Report Issues](../../issues) • [✨ Request Features](../../issues)
 
 </div>
 
@@ -23,7 +22,7 @@ A **comprehensive data analytics solution** that transforms raw e-commerce trans
 ### 🌟 Why This Dashboard?
 
 - **🔍 Deep Customer Insights**: Understand your customers like never before
-- **📈 Predictive Analytics**: Stay ahead with AI-powered forecasting
+- **📈 Predictive Analytics**: Stay ahead with AI-powered forecasting  
 - **💡 Actionable Intelligence**: Turn data into profitable decisions
 - **⚡ Real-time Performance**: Monitor KPIs as they happen
 
@@ -82,11 +81,11 @@ A **comprehensive data analytics solution** that transforms raw e-commerce trans
 
 | Category | Technologies |
 |----------|-------------|
-| **Data Processing** | ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white) |
-| **Machine Learning** | ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white) ![Prophet](https://img.shields.io/badge/Prophet-4285F4?style=for-the-badge) |
-| **Visualization** | ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white) ![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge) |
-| **Web Framework** | ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white) |
-| **Development** | ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white) |
+| **Data Processing** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white) |
+| **Machine Learning** | ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white) Prophet |
+| **Visualization** | ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=flat&logo=plotly&logoColor=white) Seaborn Matplotlib |
+| **Web Framework** | ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white) |
+| **Development** | ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white) |
 
 </div>
 
@@ -94,5 +93,16 @@ A **comprehensive data analytics solution** that transforms raw e-commerce trans
 
 ## 📈 Business Impact Goals
 
-<div align="center">
+### 🎯 **Target Achievements**
+
+| Metric | Target | Impact |
+|--------|--------|---------|
+| 🔥 **Customer Identification** | Top 20% customers → 60%+ revenue | Better resource allocation |
+| 📊 **Forecast Accuracy** | 85%+ prediction accuracy | Improved planning |
+| 💰 **Revenue Growth** | 10%+ AOV increase | Higher profitability |
+| ⚡ **Decision Speed** | Real-time insights | Competitive advantage |
+
+---
+
+## 🗂️ Project Structure
 
