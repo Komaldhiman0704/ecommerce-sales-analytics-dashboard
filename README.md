@@ -9,7 +9,7 @@
 
 **Transform raw e-commerce data into actionable business insights with AI-powered analytics**
 
-[🚀 Live Demo](#-quick-start) • [📖 Documentation](#-analysis-methodology) • [🐛 Report Issues](../../issues) • [✨ Request Features](../../issues)
+[🚀 Live Demo](#-quick-start) • [ Documentation](#-analysis-methodology) • [Report Issues](../../issues) • [✨ Request Features](../../issues)
 
 </div>
 
@@ -289,6 +289,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ### ⭐ **Star this repository if you find it helpful!** ⭐
 
 </div>
+
 
 
 
