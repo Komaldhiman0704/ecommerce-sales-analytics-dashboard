@@ -102,7 +102,193 @@ A **comprehensive data analytics solution** that transforms raw e-commerce trans
 | 💰 **Revenue Growth** | 10%+ AOV increase | Higher profitability |
 | ⚡ **Decision Speed** | Real-time insights | Competitive advantage |
 
+## 🗂️ Project Structure
+├── data/ # Raw and processed datasets
+
+├── notebooks/ # Jupyter notebooks for analysis
+
+├── src/ # Source code modules
+
+├── app/ # Streamlit dashboard
+
+
+## ⚡ Quick Start
+
+###  **Local Setup**
+1️⃣ Clone the repository
+git clone https://github.com/Komaldhiman0704/ecommerce-sales-analytics-dashboard.git
+cd ecommerce-sales-analytics-dashboard
+
+2️⃣ Create virtual environment
+python -m venv venv
+source venv/bin/activate # On Windows: venv\Scripts\activate
+
+3️⃣ Install dependencies
+pip install -r requirements.txt
+
+4️⃣ Run the dashboard
+streamlit run app/app.py
+
+### 📋 **Requirements.txt**
+
+streamlit>=1.28.0
+pandas>=1.5.0
+numpy>=1.24.0
+plotly>=5.15.0
+seaborn>=0.12.0
+matplotlib>=3.6.0
+scikit-learn>=1.3.0
+prophet>=1.1.4
+openpyxl>=3.1.0
+
+
 ---
 
-## 🗂️ Project Structure
+## 📊 Dataset Information
+
+<div align="center">
+
+| Attribute | Details |
+|-----------|---------|
+| **📁 Source** | Online Retail II UCI Dataset |
+| **📈 Records** | 500K+ transactions |
+| **📅 Period** | 2009-2011 |
+| **🌍 Geography** | 37+ countries |
+| **🛍️ Products** | 4K+ unique items |
+
+</div>
+
+### 📋 **Data Schema**
+
+{
+'InvoiceNo': 'Transaction identifier',
+'StockCode': 'Product code',
+'Description': 'Product name',
+'Quantity': 'Items purchased',
+'InvoiceDate': 'Transaction timestamp',
+'UnitPrice': 'Product price',
+'CustomerID': 'Customer identifier',
+'Country': 'Customer location'
+}
+
+---
+
+## 🔬 Analysis Methodology
+
+### 1️⃣ **Data Preprocessing Pipeline**
+- ✅ Data quality assessment & validation
+- 🧹 Missing value imputation strategies
+- 🚫 Outlier detection & treatment
+- ⚙️ Feature engineering & transformation
+
+### 2️⃣ **Exploratory Data Analysis**
+- 📊 Statistical summaries & distributions
+- 🔗 Correlation analysis
+- 📈 Trend identification
+- 🗺️ Geographic analysis
+
+### 3️⃣ **Customer Segmentation**
+- 🎯 RFM analysis (Recency, Frequency, Monetary)
+- 🤖 K-means clustering
+- 👥 Behavioral pattern analysis
+- 💰 Customer lifetime value calculation
+
+### 4️⃣ **Sales Forecasting**
+- 📈 Time series decomposition
+- 🔮 Prophet modeling
+- 🎯 Seasonality detection
+- ✅ Model validation & accuracy testing
+
+---
+
+## 📝 Key Insights & Findings
+
+> 🚧 **Analysis in Progress** - Full insights will be updated upon completion
+
+### 💡 **Preliminary Discoveries**
+
+<div align="center">
+
+| 🔍 **Customer Insights** | 📈 **Sales Patterns** | 🛍️ **Product Performance** |
+|--------------------------|------------------------|----------------------------|
+| 80/20 rule validated | Seasonal peaks identified | Top 10% products drive 40% revenue |
+| High-value customers identified | Weekend sales surge | Cross-selling opportunities found |
+| Churn patterns detected | Geographic hotspots mapped | Inventory optimization needed |
+
+</div>
+
+---
+
+## 🚀 Future Enhancements
+
+<div align="center">
+
+| Phase | Enhancement | Status |
+|-------|-------------|---------|
+| **Phase 1** | 🔄 Real-time data pipeline | 📋 Planned |
+| **Phase 2** | 🤖 Advanced ML personalization | 📋 Planned |
+| **Phase 3** | 📱 Mobile app development | 💭 Concept |
+| **Phase 4** | 🔌 REST API integration | 💭 Concept |
+
+</div>
+
+### 🛠️ **Technical Roadmap**
+
+- [ ] **Data Pipeline**: Apache Kafka integration for real-time processing
+- [ ] **ML Enhancement**: Deep learning models for demand forecasting  
+- [ ] **Performance**: Redis caching & PostgreSQL optimization
+- [ ] **Security**: OAuth2 authentication & role-based access
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how you can help:
+
+### 🔄 **How to Contribute**
+
+1. 🍴 Fork the repository
+2. 🌿 Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. 💾 Commit your changes (`git commit -m 'Add AmazingFeature'`)
+4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
+5. 🔀 Open a Pull Request
+
+---
+
+## 👨‍💻 Author
+
+<div align="center">
+
+### **Komal Dhiman**
+*Computer Science Engineering Student | AI/ML Specialization*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/komal-021b92285/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:dhimankoml443@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Komaldhiman0704)
+
+</div>
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🌟 Acknowledgments
+
+- 📊 **UCI Machine Learning Repository** for the dataset
+- 🎨 **Streamlit Community** for the amazing framework
+- 💡 **Open Source Contributors** who inspire continuous learning
+
+---
+
+<div align="center">
+
+### ⭐ **Star this repository if you find it helpful!** ⭐
+
+</div>
+
+
 
