@@ -176,28 +176,28 @@ openpyxl>=3.1.0
 ## 🔬 Analysis Methodology
 
 ### 1️⃣ **Data Preprocessing Pipeline**
-- ✅ Data quality assessment & validation
-- 🧹 Missing value imputation strategies
-- 🚫 Outlier detection & treatment
-- ⚙️ Feature engineering & transformation
+-  Data quality assessment & validation
+-  Missing value imputation strategies
+-  Outlier detection & treatment
+-  Feature engineering & transformation
 
 ### 2️⃣ **Exploratory Data Analysis**
-- 📊 Statistical summaries & distributions
-- 🔗 Correlation analysis
-- 📈 Trend identification
-- 🗺️ Geographic analysis
+-  Statistical summaries & distributions
+-  Correlation analysis
+-  Trend identification
+-  Geographic analysis
 
 ### 3️⃣ **Customer Segmentation**
-- 🎯 RFM analysis (Recency, Frequency, Monetary)
-- 🤖 K-means clustering
-- 👥 Behavioral pattern analysis
-- 💰 Customer lifetime value calculation
+-  RFM analysis (Recency, Frequency, Monetary)
+-  K-means clustering
+-  Behavioral pattern analysis
+-  Customer lifetime value calculation
 
 ### 4️⃣ **Sales Forecasting**
-- 📈 Time series decomposition
-- 🔮 Prophet modeling
-- 🎯 Seasonality detection
-- ✅ Model validation & accuracy testing
+-  Time series decomposition
+-  Prophet modeling
+-  Seasonality detection
+-  Model validation & accuracy testing
 
 ---
 
@@ -257,9 +257,9 @@ We welcome contributions! Here's how you can help:
 
 ## 👨‍💻 Author
 
-<div align="center">
+<div align="left">
 
-### **Komal Dhiman**
+### **Komal*
 *Computer Science Engineering Student | AI/ML Specialization*
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/komal-021b92285/)
@@ -286,9 +286,10 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 <div align="center">
 
-### ⭐ **Star this repository if you find it helpful!** ⭐
+### ⭐ **Star this repository if you find it helpful!** 
 
 </div>
+
 
 
 
