@@ -29,24 +29,13 @@ A comprehensive data analytics solution that transforms raw e-commerce transacti
 - Enable data-driven decision making through intuitive dashboards
 
 ## 🗂️ Project Structure
-ecommerce-analytics-dashboard/
-├──  app/
-│   └── app.py
+├── data/ # Raw and processed datasets
 
-├── 📊 data/
+├── notebooks/ # Jupyter notebooks for analysis
 
-│   ├── raw/                      # Original datasets
+├── src/ # Source code modules
 
-│   └── processed/                # Cleaned data files
-
-├── 📓 notebooks/
-
-│   ├── 01_data_exploration.ipynb
-
-│   ├── 02_data_cleaning.ipynb
-
-│   └── 03_customer_segmentation.ipynb
-    |__04_sales_forecasting.ipynb.ipynb
+├── app/ # Streamlit dashboard
 
 ├── 📋 requirements.txt           # Python dependencies
 
