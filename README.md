@@ -30,17 +30,27 @@ A comprehensive data analytics solution that transforms raw e-commerce transacti
 
 ## 🗂️ Project Structure
 ecommerce-analytics-dashboard/
-├── 📱 app/
-│   └── streamlit_app.py          # Main dashboard application
+├──  app/
+│   └── app.py
+
 ├── 📊 data/
+
 │   ├── raw/                      # Original datasets
+
 │   └── processed/                # Cleaned data files
+
 ├── 📓 notebooks/
+
 │   ├── 01_data_exploration.ipynb
+
 │   ├── 02_data_cleaning.ipynb
+
 │   └── 03_customer_segmentation.ipynb
+
 ├── 📋 requirements.txt           # Python dependencies
+
 ├── 📖 README.md
+
 └── 🔒 .gitignore
 
 
@@ -90,4 +100,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 ⭐ **Star this repository if you find it helpful!**
+
 
