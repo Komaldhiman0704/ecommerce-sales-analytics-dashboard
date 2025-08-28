@@ -46,6 +46,7 @@ ecommerce-analytics-dashboard/
 │   ├── 02_data_cleaning.ipynb
 
 │   └── 03_customer_segmentation.ipynb
+    |__04_sales_forecasting.ipynb.ipynb
 
 ├── 📋 requirements.txt           # Python dependencies
 
@@ -100,5 +101,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 ⭐ **Star this repository if you find it helpful!**
+
 
 
