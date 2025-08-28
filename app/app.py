@@ -1,7 +1,5 @@
-
 """
 E-Commerce Analytics Dashboard
-=============================
 Author: Komal
 Date: August 2025
 Dashboard for analyzing e-commerce sales and customer data
@@ -14,125 +12,50 @@ import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import numpy as np
 import warnings
-
 warnings.filterwarnings('ignore')
 
-# Page setup
+# Basic page setup
 st.set_page_config(
     page_title="E-Commerce Dashboard",
     page_icon="📊",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="wide"
 )
 
-# Compact styling with reduced white space
+# Simple, clean styling with left-aligned header
 st.markdown("""
 <style>
-    /* Remove top padding and margins */
-    .stMainBlockContainer {
-        padding-top: 1rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 0rem;
-    }
-    
-    .block-container {
-        padding-top: 1rem;
-        padding-bottom: 0rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        max-width: 100%;
-    }
-    
-    /* Reduce gaps between elements */
-    .stVerticalBlock {
-        gap: 0.2rem;
-    }
-    
-    /* Compact header styling */
-    .title {
-        font-size: 2rem;
-        font-weight: bold;
+    .main-header {
         color: #2c3e50;
-        margin-bottom: 0.2rem;
-        padding: 0;
-    }
-    
-    .subtitle {
-        font-size: 0.9rem;
-        color: #7f8c8d;
-        margin-bottom: 1rem;
-        padding: 0;
-    }
-    
-    /* Compact metric containers */
-    div[data-testid="metric-container"] {
-        background: #f8f9fa;
-        border: 1px solid #e9ecef;
-        padding: 0.8rem;
-        border-radius: 5px;
-        margin: 0.2rem 0;
-    }
-    
-    /* Compact section headers */
-    .section-header {
-        background: #f1f3f4;
-        padding: 8px 15px;
-        border-radius: 5px;
-        border-left: 3px solid #3498db;
-        margin: 10px 0 8px 0;
-        font-size: 1.1rem;
+        font-size: 2.5rem;
+        text-align: left;
+        margin-bottom: 0.5rem;
         font-weight: 600;
     }
     
-    /* Reduce sidebar padding */
-    .css-1d391kg {
-        padding-top: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 1rem;
-        padding-left: 1rem;
+    .subtitle {
+        color: #7f8c8d;
+        font-size: 1.1rem;
+        text-align: left;
+        margin-bottom: 2rem;
+        font-style: italic;
     }
     
-    /* Compact tabs */
-    .stTabs [data-baseweb="tab-list"] {
-        gap: 3px;
-        margin-bottom: 0.5rem;
+    .section-title {
+        color: #34495e;
+        font-size: 1.3rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
     }
     
-    .stTabs [data-baseweb="tab"] {
-        height: 35px;
-        padding: 0 12px;
-        font-size: 0.9rem;
-    }
-    
-    /* Reduce chart container padding */
-    .stPlotlyChart {
-        margin-bottom: 0.5rem;
-    }
-    
-    /* Compact columns */
-    .stColumn {
-        padding: 0 0.3rem;
-    }
-    
-    /* Reduce dataframe padding */
-    .stDataFrame {
-        margin: 0.5rem 0;
-    }
-    
-    /* Hide Streamlit menu and footer */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    
-    /* Compact expander */
-    .streamlit-expanderHeader {
-        font-size: 0.9rem;
+    .metric-card {
+        text-align: center;
+        padding: 1rem;
+        margin: 0.5rem;
     }
 </style>
 """, unsafe_allow_html=True)
 
-# Load data functions
+# Data loading functions
 @st.cache_data(ttl=3600)
 def load_data():
     try:
@@ -178,52 +101,35 @@ def load_customer_segments():
         return None
 
 def main():
-    # Compact header
-    st.markdown('<h1 class="title">E-Commerce Analytics Dashboard</h1>', unsafe_allow_html=True)
+    # Left-aligned header for more natural look
+    st.markdown('<h1 class="main-header">📊 E-Commerce Analytics Dashboard</h1>', unsafe_allow_html=True)
     st.markdown('<p class="subtitle">Business Performance & Customer Insights</p>', unsafe_allow_html=True)
     
     # Load data
     df, data_loaded = load_data()
     customer_segments = load_customer_segments()
     
-    # Compact sidebar
-    with st.sidebar:
-        st.markdown("### 🎛️ Controls")
-        
-        # Date range - more compact
-        st.markdown("**📊 Period**")
-        date_min = df['InvoiceDate'].min().date()
-        date_max = df['InvoiceDate'].max().date()
-        
-        start_date = st.date_input("From", value=date_min, min_value=date_min, max_value=date_max, key="start")
-        end_date = st.date_input("To", value=date_max, min_value=date_min, max_value=date_max, key="end")
-        
-        # Geographic filter
-        st.markdown("**🌍 Markets**")
-        countries = sorted(df['Country'].unique().tolist())
-        all_countries = st.checkbox("All Countries", value=True)
-        
-        if all_countries:
-            selected_countries = countries
-        else:
-            selected_countries = st.multiselect("Select", countries, default=countries[:2])
-        
-        # Product filter
-        st.markdown("**📦 Products**")
-        if 'Description' in df.columns:
-            top_products = df['Description'].value_counts().head(8).index.tolist()
-            all_products = st.checkbox("All Products", value=True)
-            
-            if not all_products:
-                selected_products = st.multiselect("Select", top_products, default=top_products[:2])
-            else:
-                selected_products = df['Description'].unique().tolist()
-        else:
-            selected_products = []
-        
-        if st.button("🔄 Refresh", type="primary"):
-            st.cache_data.clear()
-            st.rerun()
+    # Simple sidebar filters
+    st.sidebar.title("🎛️ Filters")
+    
+    # Date filter
+    st.sidebar.subheader("Date Range")
+    date_min = df['InvoiceDate'].min().date()
+    date_max = df['InvoiceDate'].max().date()
+    
+    start_date = st.sidebar.date_input("Start Date", value=date_min)
+    end_date = st.sidebar.date_input("End Date", value=date_max)
+    
+    # Country filter
+    st.sidebar.subheader("Country")
+    countries = sorted(df['Country'].unique().tolist())
+    selected_countries = st.sidebar.multiselect("Select Countries", countries, default=countries)
+    
+    # Product filter
+    st.sidebar.subheader("Products")
+    if 'Description' in df.columns:
+        products = df['Description'].unique().tolist()
+        selected_products = st.sidebar.multiselect("Select Products", products, default=products)
     
     # Apply filters
     filtered_df = df[
@@ -232,137 +138,103 @@ def main():
         (df['Country'].isin(selected_countries))
     ]
     
-    if not all_products and selected_products:
+    if 'selected_products' in locals() and selected_products:
         filtered_df = filtered_df[filtered_df['Description'].isin(selected_products)]
     
     if filtered_df.empty:
-        st.warning("No data matches your filters.")
+        st.warning("⚠️ No data matches your selected filters.")
         return
     
-    # Compact KPIs
-    st.markdown('<div class="section-header">📈 Key Metrics</div>', unsafe_allow_html=True)
+    # Key Metrics
+    st.markdown('<h2 class="section-title">📈 Key Performance Metrics</h2>', unsafe_allow_html=True)
     
     col1, col2, col3, col4 = st.columns(4)
     
+    total_revenue = filtered_df['TotalAmount'].sum()
+    total_orders = filtered_df['InvoiceNo'].nunique()
+    unique_customers = filtered_df['CustomerID'].nunique()
+    avg_order_value = filtered_df.groupby('InvoiceNo')['TotalAmount'].sum().mean()
+    
     with col1:
-        total_revenue = filtered_df['TotalAmount'].sum()
-        st.metric("Revenue", f"£{total_revenue:,.0f}")
+        st.metric("💰 Total Revenue", f"£{total_revenue:,.0f}")
+    with col2:
+        st.metric("📦 Total Orders", f"{total_orders:,}")
+    with col3:
+        st.metric("👥 Unique Customers", f"{unique_customers:,}")
+    with col4:
+        st.metric("🛒 Avg Order Value", f"£{avg_order_value:.0f}")
+    
+    # Sales Trends
+    st.markdown('<h2 class="section-title">📊 Sales Analysis</h2>', unsafe_allow_html=True)
+    
+    # Daily sales trend
+    daily_sales = filtered_df.groupby(filtered_df['InvoiceDate'].dt.date).agg({
+        'TotalAmount': 'sum',
+        'InvoiceNo': 'nunique'
+    }).reset_index()
+    daily_sales.columns = ['Date', 'Revenue', 'Orders']
+    
+    # Revenue trend chart
+    fig_revenue = px.line(daily_sales, x='Date', y='Revenue', 
+                         title='Daily Revenue Trend',
+                         labels={'Revenue': 'Revenue (£)', 'Date': 'Date'})
+    fig_revenue.update_traces(line_color='#3498db', line_width=2)
+    st.plotly_chart(fig_revenue, use_container_width=True)
+    
+    # Two column layout for additional charts
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        # Country performance
+        country_sales = filtered_df.groupby('Country')['TotalAmount'].sum().reset_index()
+        country_sales = country_sales.sort_values('TotalAmount', ascending=False)
+        
+        fig_country = px.bar(country_sales, x='Country', y='TotalAmount',
+                            title='Revenue by Country',
+                            labels={'TotalAmount': 'Revenue (£)'})
+        fig_country.update_traces(marker_color='#2ecc71')
+        st.plotly_chart(fig_country, use_container_width=True)
     
     with col2:
-        total_orders = filtered_df['InvoiceNo'].nunique()
-        st.metric("Orders", f"{total_orders:,}")
-    
-    with col3:
-        unique_customers = filtered_df['CustomerID'].nunique()
-        st.metric("Customers", f"{unique_customers:,}")
-    
-    with col4:
-        avg_order_value = filtered_df.groupby('InvoiceNo')['TotalAmount'].sum().mean()
-        st.metric("Avg Order", f"£{avg_order_value:.0f}")
-    
-    # Compact analytics
-    st.markdown('<div class="section-header">📊 Analytics</div>', unsafe_allow_html=True)
-    
-    tab1, tab2, tab3 = st.tabs(["📈 Trends", "🗺️ Geography", "🛍️ Products"])
-    
-    with tab1:
-        # Daily sales - more compact
-        daily_sales = filtered_df.groupby(filtered_df['InvoiceDate'].dt.date).agg({
-            'TotalAmount': 'sum',
-            'InvoiceNo': 'nunique'
-        }).reset_index()
-        daily_sales.columns = ['Date', 'Revenue', 'Orders']
-        
-        # Single revenue chart (more space efficient)
-        fig_revenue = px.line(daily_sales, x='Date', y='Revenue', title='Daily Revenue')
-        fig_revenue.update_layout(
-            height=300,
-            margin=dict(l=0, r=0, t=30, b=0),
-            plot_bgcolor='white'
-        )
-        st.plotly_chart(fig_revenue, use_container_width=True)
-        
-        # Compact side-by-side metrics
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            fig_orders = px.bar(daily_sales.tail(7), x='Date', y='Orders', title='Last 7 Days - Orders')
-            fig_orders.update_layout(height=250, margin=dict(l=0, r=0, t=30, b=0))
-            st.plotly_chart(fig_orders, use_container_width=True)
-        
-        with col2:
-            # Weekly summary
-            weekly_avg = daily_sales['Revenue'].tail(7).mean()
-            total_week = daily_sales['Revenue'].tail(7).sum()
-            
-            st.markdown("**📊 Weekly Summary**")
-            st.write(f"**Total:** £{total_week:,.0f}")
-            st.write(f"**Daily Avg:** £{weekly_avg:.0f}")
-            st.write(f"**Best Day:** {daily_sales.tail(7).loc[daily_sales.tail(7)['Revenue'].idxmax(), 'Date']}")
-    
-    with tab2:
-        country_sales = filtered_df.groupby('Country').agg({
-            'TotalAmount': 'sum',
-            'CustomerID': 'nunique'
-        }).reset_index().sort_values('TotalAmount', ascending=False)
-        
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            fig_pie = px.pie(country_sales, values='TotalAmount', names='Country', title='Revenue Share')
-            fig_pie.update_layout(height=300, margin=dict(l=0, r=0, t=30, b=0))
-            st.plotly_chart(fig_pie, use_container_width=True)
-        
-        with col2:
-            # Compact country stats
-            st.markdown("**🌍 Market Performance**")
-            for i, row in country_sales.head(4).iterrows():
-                pct = (row['TotalAmount'] / country_sales['TotalAmount'].sum()) * 100
-                st.write(f"**{row['Country']}:** £{row['TotalAmount']:,.0f} ({pct:.1f}%)")
-    
-    with tab3:
+        # Top products
         if 'Description' in filtered_df.columns:
-            product_data = filtered_df.groupby('Description').agg({
-                'TotalAmount': 'sum',
-                'Quantity': 'sum'
-            }).reset_index().sort_values('TotalAmount', ascending=False).head(8)
+            product_sales = filtered_df.groupby('Description')['TotalAmount'].sum().reset_index()
+            product_sales = product_sales.sort_values('TotalAmount', ascending=False).head(5)
             
-            # Compact product table
-            st.markdown("**🏆 Top Products**")
-            display_df = product_data.copy()
-            display_df['Revenue'] = display_df['TotalAmount'].apply(lambda x: f"£{x:,.0f}")
-            display_df['Units'] = display_df['Quantity'].apply(lambda x: f"{x:,}")
-            
-            # Show compact table
-            st.dataframe(
-                display_df[['Description', 'Revenue', 'Units']].head(6), 
-                use_container_width=True, 
-                hide_index=True,
-                height=200
-            )
+            fig_products = px.bar(product_sales, x='TotalAmount', y='Description',
+                                 title='Top 5 Products by Revenue',
+                                 labels={'TotalAmount': 'Revenue (£)', 'Description': 'Product'},
+                                 orientation='h')
+            fig_products.update_traces(marker_color='#e74c3c')
+            st.plotly_chart(fig_products, use_container_width=True)
     
-    # Compact customer section
-    st.markdown('<div class="section-header">👥 Customers</div>', unsafe_allow_html=True)
+    # Customer Analysis
+    st.markdown('<h2 class="section-title">👥 Customer Insights</h2>', unsafe_allow_html=True)
     
     if customer_segments is not None:
         col1, col2 = st.columns(2)
         
         with col1:
+            # Customer segments pie chart
             segment_counts = customer_segments['Customer_Segment'].value_counts()
-            fig_segments = px.pie(values=segment_counts.values, names=segment_counts.index, title='Segments')
-            fig_segments.update_layout(height=250, margin=dict(l=0, r=0, t=30, b=0))
+            fig_segments = px.pie(values=segment_counts.values, names=segment_counts.index,
+                                 title='Customer Segments Distribution')
             st.plotly_chart(fig_segments, use_container_width=True)
         
         with col2:
-            st.markdown("**📊 Customer Insights**")
+            # Customer metrics
+            st.subheader("Customer Statistics")
             total_customers = len(customer_segments)
-            champions = len(customer_segments[customer_segments['Customer_Segment'] == 'Champions']) if 'Champions' in customer_segments['Customer_Segment'].values else 0
             st.write(f"**Total Customers:** {total_customers:,}")
-            st.write(f"**Champions:** {champions}")
+            
             if 'Monetary' in customer_segments.columns:
-                avg_value = customer_segments['Monetary'].mean()
-                st.write(f"**Avg Customer Value:** £{avg_value:.0f}")
+                avg_customer_value = customer_segments['Monetary'].mean()
+                st.write(f"**Average Customer Value:** £{avg_customer_value:.0f}")
+                
+                top_customers = customer_segments['Monetary'].quantile(0.8)
+                st.write(f"**Top 20% Customer Value:** £{top_customers:.0f}")
     else:
+        # Basic customer analysis from main data
         customer_metrics = filtered_df.groupby('CustomerID').agg({
             'TotalAmount': 'sum',
             'InvoiceNo': 'nunique'
@@ -371,50 +243,41 @@ def main():
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.metric("Avg Customer Value", f"£{customer_metrics['TotalAmount'].mean():.0f}")
+            avg_customer_value = customer_metrics['TotalAmount'].mean()
+            st.metric("💳 Avg Customer Value", f"£{avg_customer_value:.0f}")
         
         with col2:
-            st.metric("Avg Orders/Customer", f"{customer_metrics['InvoiceNo'].mean():.1f}")
+            avg_orders_per_customer = customer_metrics['InvoiceNo'].mean()
+            st.metric("📈 Avg Orders per Customer", f"{avg_orders_per_customer:.1f}")
         
         with col3:
-            repeat_rate = ((customer_metrics['InvoiceNo'] > 1).sum() / len(customer_metrics)) * 100
-            st.metric("Repeat Rate", f"{repeat_rate:.1f}%")
+            repeat_customers = (customer_metrics['InvoiceNo'] > 1).sum()
+            repeat_rate = (repeat_customers / len(customer_metrics)) * 100
+            st.metric("🔄 Repeat Customer Rate", f"{repeat_rate:.1f}%")
     
-    # Compact insights
-    st.markdown('<div class="section-header">💡 Quick Insights</div>', unsafe_allow_html=True)
+    # Data Summary
+    st.markdown('<h2 class="section-title">📋 Data Summary</h2>', unsafe_allow_html=True)
     
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        daily_sales_calc = filtered_df.groupby(filtered_df['InvoiceDate'].dt.date)['TotalAmount'].sum()
-        peak_day = daily_sales_calc.idxmax()
-        peak_revenue = daily_sales_calc.max()
-        
-        st.write(f"**🚀 Best Day:** {peak_day}")
-        st.write(f"**💰 Peak Revenue:** £{peak_revenue:,.0f}")
-        st.write(f"**📊 Analysis:** {len(daily_sales_calc)} days")
-    
-    with col2:
-        avg_daily = daily_sales_calc.mean()
-        country_sales_calc = filtered_df.groupby('Country')['TotalAmount'].sum()
-        top_market = country_sales_calc.idxmax()
-        
-        st.write(f"**🎯 Daily Target:** £{avg_daily*1.1:.0f}")
-        st.write(f"**🌍 Top Market:** {top_market}")
-        st.write(f"**📈 Growth Opportunity:** Customer retention")
-    
-    # Compact footer
-    st.markdown("---")
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.caption(f"**Data:** {len(filtered_df):,} records")
+        st.write("**Data Range**")
+        st.write(f"From: {start_date}")
+        st.write(f"To: {end_date}")
+        st.write(f"Days: {(end_date - start_date).days}")
     
     with col2:
-        st.caption(f"**Period:** {(end_date - start_date).days} days")
+        st.write("**Records**")
+        st.write(f"Total Records: {len(filtered_df):,}")
+        st.write(f"Countries: {len(selected_countries)}")
+        st.write(f"Products: {filtered_df['Description'].nunique() if 'Description' in filtered_df.columns else 'N/A'}")
     
     with col3:
-        st.caption(f"**Updated:** {datetime.now().strftime('%H:%M')}")
+        st.write("**Performance**")
+        best_day = daily_sales.loc[daily_sales['Revenue'].idxmax()]
+        st.write(f"Best Day: {best_day['Date']}")
+        st.write(f"Best Revenue: £{best_day['Revenue']:,.0f}")
+        st.write(f"Avg Daily Revenue: £{daily_sales['Revenue'].mean():,.0f}")
 
 if __name__ == "__main__":
     main()
